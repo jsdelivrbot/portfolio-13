@@ -3,7 +3,8 @@ const webpack = require('webpack');
 const path = require('path');
 const precss = require('precss');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -23,14 +24,6 @@ module.exports = {
         pathinfo: true,
         path: PATHS.build,
         filename: './app.js'
-    },
-    devServer: {
-        contentBase: './public',
-        publicPath: '/', // Live-reload
-        inline: true,
-        port: process.env.PORT || 3000, // Port Number
-        host: 'localhost', // Change to '0.0.0.0' for external facing server
-        historyApiFallback: true
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -98,7 +91,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        // limit: 8000, // Convert images < 8kb to base64 strings
+                        limit: 8000, // Convert images < 8kb to base64 strings
                         name: '[name].[ext]?[hash]',
                         outputPath: 'assets/images/',
                         publicPath: 'assets/images/'
@@ -115,10 +108,18 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin([PATHS.build]),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('main.css'),
+        new HtmlWebpackPlugin({
+            template: `${PATHS.app}/common/template/index.html`,
+            inject: 'body'
+        }),
+        new ExtractTextPlugin('./main.css', {
+            allChunks: false,
+            disable: true
+        }),
         new TransferWebpackPlugin([
-            { from: 'app' },
+            { from: PATHS.app },
         ]),
         new CopyWebpackPlugin([
             { from: './app/assets/images/', to: './assets/images/' }
