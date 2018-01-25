@@ -10,10 +10,10 @@ export default props => (
                     </div>
                     <div className="meta">
                         <time className="published">November 1, 2015</time>
-                        <a href="#" className="author"><span className="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+                        <a href="#" className="author"><span className="name">Jane Doe</span><img src="./assets/images/avatar.jpg" alt="" /></a>
                     </div>
                 </header>
-                <a href="#" className="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                <a href="#" className="image featured"><img src="./assets/images/pic01.jpg" alt="" /></a>
                 <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt
                     sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
                 <footer>

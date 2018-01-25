@@ -3,7 +3,7 @@ import React from 'react'
 export default props => (
     <section id="sidebar">
         <section id="intro">
-            <a href="#" className="logo"><img src="images/logo.jpg" alt="" /></a>
+            <a href="#" className="logo"><img src="./assets/images/logo.jpg" alt="Future Imperfect" /></a>
             <header>
                 <h2>Future Imperfect</h2>
                 <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
@@ -15,9 +15,9 @@ export default props => (
                 <header>
                     <h3><a href="#">Vitae sed condimentum</a></h3>
                     <time className="published" >October 20, 2015</time>
-                    <a href="#" className="author"><img src="images/avatar.jpg" alt="" /></a>
+                    <a href="#" className="author"><img src="./assets/images/avatar.jpg" alt="" /></a>
                 </header>
-                <a href="#" className="image"><img src="images/pic04.jpg" alt="" /></a>
+                <a href="#" className="image"><img src="./assets/images/pic04.jpg" alt="" /></a>
             </article>
         </section>
         
@@ -29,7 +29,7 @@ export default props => (
                             <h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
                             <time className="published" >October 20, 2015</time>
                         </header>
-                        <a href="#" className="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <a href="#" className="image"><img src="./assets/images/pic08.jpg" alt="" /></a>
                     </article>
                 </li>
             </ul>

@@ -2,9 +2,15 @@ const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const path = require('path');
 const precss = require('precss');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const PATHS = {
+    app: path.join(__dirname, './app'),
+    build: path.join(__dirname, './public')
+}
 
 module.exports = {
     entry: [
@@ -13,7 +19,9 @@ module.exports = {
         './app/assets/sass/main.scss'
     ],
     output: {
-        path: __dirname + '/public',
+        // path: __dirname + '/public',
+        pathinfo: true,
+        path: PATHS.build,
         filename: './app.js'
     },
     devServer: {
@@ -34,6 +42,7 @@ module.exports = {
         loaders: [{
                 test: /.js[x]?$/,
                 loader: 'babel-loader',
+                include: PATHS.app,
                 exclude: /node_modules/,
                 query: {
                     cacheDirectory: true,
@@ -75,12 +84,26 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 use: 'file-loader',
             },
+
+            // {
+            //     test: /\.(jpe?g|png|gif|svg)$/i,
+            //     use: [
+            //         'file-loader?name=images/[name].[ext]',
+            //         // 'file-loader?name=[name].[ext]&outputPath=images/&publicPath=images/',
+            //         'image-webpack-loader'
+            //     ]
+            // },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                    'file-loader?name=images/[name].[ext]',
-                    'image-webpack-loader?bypassOnDebug'
-                ]
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        // limit: 8000, // Convert images < 8kb to base64 strings
+                        name: '[name].[ext]?[hash]',
+                        outputPath: 'assets/images/',
+                        publicPath: 'assets/images/'
+                    }
+                }]
             },
             {
                 test: /font-awesome\.config\.js/,
@@ -96,6 +119,9 @@ module.exports = {
         new ExtractTextPlugin('main.css'),
         new TransferWebpackPlugin([
             { from: 'app' },
+        ]),
+        new CopyWebpackPlugin([
+            { from: './app/assets/images/', to: './assets/images/' }
         ])
     ]
 };
