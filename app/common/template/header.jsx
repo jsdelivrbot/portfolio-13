@@ -7,11 +7,7 @@ export default props => (
       <h1><a href="#">Future Imperfect</a></h1>
       <nav className="links">
           <ul>
-              <li><a href="#">Lorem</a></li>
-              <li><a href="#">Ipsum</a></li>
-              <li><a href="#">Feugiat</a></li>
-              <li><a href="#">Tempus</a></li>
-              <li><a href="#">Adipiscing</a></li>
+              <li><a href="#single">Page</a></li>
           </ul>
       </nav>
       <nav className="main">

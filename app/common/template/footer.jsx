@@ -1,8 +1,15 @@
 import React from 'react'
 
 export default props => (
-    <footer className="container">
-        <p className="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+    <footer id="footer">
+            <ul className="icons">
+                <li><a href="#" className="fa-twitter"><span className="label">Twitter</span></a></li>
+                <li><a href="#" className="fa-facebook"><span className="label">Facebook</span></a></li>
+                <li><a href="#" className="fa-instagram"><span className="label">Instagram</span></a></li>
+                <li><a href="#" className="fa-rss"><span className="label">RSS</span></a></li>
+                <li><a href="#" className="fa-envelope"><span className="label">Email</span></a></li>
+            </ul>
+            <p className="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        </footer>
+
 )

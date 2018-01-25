@@ -9,7 +9,7 @@ export default props => (
                         <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
                     </div>
                     <div className="meta">
-                        <time className="published">November 1, 2015</time>
+                        <time className="published" dateTime="2015-11-01">November 1, 2015</time>
                         <a href="#" className="author"><span className="name">Jane Doe</span><img src="./assets/images/avatar.jpg" alt="" /></a>
                     </div>
                 </header>
