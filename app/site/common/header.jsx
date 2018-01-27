@@ -8,14 +8,16 @@ export default props => (
       <nav className="links">
           <ul>
               <li><a href="#single">Page</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
           </ul>
       </nav>
       <nav className="main">
                 <ul>
                     <li className="search">
                         <a className="fa-search" href="#search">Search</a>
-                        <form id="search" method="get" action="#">
-                            <input type="text" name="query" placeholder="Search" />
+                        <form id="search" method="get" action="#search">
+                            <input type="text" name="q" placeholder="Search" />
                         </form>
                     </li>
                     <li className="menu">
@@ -27,8 +29,8 @@ export default props => (
     <section id="menu">
 
     <section>
-                <form className="search" method="get" action="#">
-                    <input type="text" name="query" placeholder="Search" />
+                <form className="search" method="get" action="#search">
+                    <input type="text" name="q" placeholder="Search" />
                 </form>
             </section>
 

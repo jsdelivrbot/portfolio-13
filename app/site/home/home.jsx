@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './../../common/template/header';
+import Header from './../common/header';
 import Projects from './projects';
-import Sidebar from './../../common/template/sidebar';
+import Sidebar from './../common/sidebar';
 
 export default props => (
     <div id='wrapper'>

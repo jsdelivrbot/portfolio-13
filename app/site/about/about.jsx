@@ -9,7 +9,7 @@ export default props => (
         <article className="post">
             <header>
                 <div className="title">
-                    <h2>Magna sed adipiscing</h2>
+                    <h2>About</h2>
                     <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum
                         ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Footer from './../../common/template/footer';
+import Footer from './footer';
 
 export default props => (
     <section id="sidebar">
@@ -8,7 +8,7 @@ export default props => (
             <a href="#" className="logo"><img src="./assets/images/logo.jpg" alt="Future Imperfect" /></a>
             <header>
                 <h2>Future Imperfect</h2>
-                <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+                <p>Another fine responsive site template by <a href="http://html5up.net" target="_blank">HTML5 UP</a></p>
             </header>
         </section>
 
@@ -41,7 +41,7 @@ export default props => (
             <h2>About</h2>
             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
             <ul className="actions">
-                <li><a href="#" className="button">Learn More</a></li>
+                <li><a href="#about" className="button">Learn More</a></li>
             </ul>
         </section>
         <Footer />
