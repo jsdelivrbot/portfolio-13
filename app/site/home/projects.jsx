@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import CONSTS from './../../common/consts';
 import { getProjects } from './../../site/home/homeActions';
 
 class Projects extends Component {
@@ -23,7 +24,7 @@ class Projects extends Component {
                         <a href={`#section/${project.category}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt={`${project.category}`} /></a>
                     </div>
                 </header>
-                <a href="#" className="image featured"><img src={`http://localhost:8080/images/works/${project.folder_files}/${project.cover}`} alt="" /></a>
+                <a href="#" className="image featured"><img src={`${CONSTS.IMAGE_PATH + project.folder_files}/${project.cover}`} alt="" /></a>
                 <p>{`${project.meta_description}`}</p>
                 <footer>
                     <ul className="actions">

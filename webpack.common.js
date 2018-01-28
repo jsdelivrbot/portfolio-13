@@ -17,7 +17,8 @@ module.exports = {
     entry: [
         './app/index.jsx',
         'font-awesome/scss/font-awesome.scss',
-        './app/assets/sass/main.scss'
+        './app/assets/site/main.scss',
+        // './app/assets/dashboard/material-dashboard.scss'
     ],
     output: {
         // path: __dirname + '/public',
@@ -65,7 +66,7 @@ module.exports = {
                             }
                         }
                     }, {
-                        loader: 'sass-loader' // compiles SASS to CSS
+                        loader: 'sass-loader', // compiles SASS to CSS
                     }]
                 })
             },
@@ -114,9 +115,9 @@ module.exports = {
             template: `${PATHS.app}/common/template/index.html`,
             inject: 'body'
         }),
-        new ExtractTextPlugin('./main.css', {
-            allChunks: false,
-            disable: true
+        new ExtractTextPlugin({
+            filename: './[name].bundle.css',
+            allChunks: true
         }),
         new TransferWebpackPlugin([
             { from: PATHS.app },

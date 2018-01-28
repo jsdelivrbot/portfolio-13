@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080';
+import CONSTS from './../../common/consts';
 
 export function getProjects() {
-    const request = axios.get(`${API_URL}/projects`);
+    const request = axios.get(`${CONSTS.API_URL}/projects`);
 
     return {
         type: 'PROJECTS_FETCHED',

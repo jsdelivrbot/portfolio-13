@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './../common/header';
-import Footer from './../common/footer';
+import Header from './../common_template/header';
+import Footer from './../common_template/footer';
 
 export default props => (
     <div id='wrapper' className="single">
