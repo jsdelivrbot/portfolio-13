@@ -13,6 +13,14 @@ const PATHS = {
     build: path.join(__dirname, './public')
 };
 
+// const bundleExtractPlugin = new ExtractTextPlugin({
+//     filename: 'css/main.css',
+// });
+
+// const vendorsExtractPlugin = new ExtractTextPlugin({
+//     filename: 'css/dashboard.css',
+// });
+
 module.exports = {
     entry: [
         './app/index.jsx',
@@ -70,6 +78,21 @@ module.exports = {
                     }]
                 })
             },
+
+            // {
+            //     test: /.scss$/,
+            //     exclude: [/node_modules/],
+            //     use: bundleExtractPlugin.extract({
+            //         use: ['css-loader', 'sass-loader'],
+            //     }),
+            // },
+            // {
+            //     test: /.scss$/,
+            //     exclude: [/node_modules/],
+            //     use: vendorsExtractPlugin.extract({
+            //         use: ['css-loader', 'sass-loader'],
+            //     }),
+            // },
             {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: 'url-loader?limit=10000',
@@ -119,9 +142,11 @@ module.exports = {
             filename: './[name].bundle.css',
             allChunks: true
         }),
-        new TransferWebpackPlugin([
-            { from: PATHS.app },
-        ]),
+        // bundleExtractPlugin,
+        // vendorsExtractPlugin,
+        // new TransferWebpackPlugin([
+        //     { from: PATHS.app },
+        // ]),
         new CopyWebpackPlugin([
             { from: './app/assets/images/', to: './assets/images/' }
         ])

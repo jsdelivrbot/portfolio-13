@@ -13,11 +13,11 @@ import DashboardHome from './../dashboard/home/home';
 export default props => (
     <Router history={hashHistory}>
         <Route path='/' component={Home} />
-        <Route path='/single' component={Single} />
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/login' component={Login} />
-        <Route path='/dashboard' component={DashboardHome}>
+        <Route path='single' component={Single} />
+        <Route path='about' component={About} />
+        <Route path='contact' component={Contact} />
+        <Route path='login' component={Login} />
+        <Route path='dashboard' component={DashboardHome}>
             <IndexRoute component={DashboardHome} />
         </Route>
         <Redirect from='*' to='/' />
