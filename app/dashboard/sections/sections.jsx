@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import Header from './../common_template/header';
+import Sidebar from './../common_template/sidebar';
 
-class Dashboard extends Component {
+class Sections extends Component {
 
     componentWillMount() {
 
     }
 
     render() {
-        const title = 'Home Page';
+        const title = 'Sections Page';
         return (
             <main role="main" id="main">
                 <section>
@@ -62,4 +64,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default Sections;

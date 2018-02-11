@@ -6,9 +6,15 @@ import Single from './../site/single/single';
 import About from './../site/about/about';
 import Contact from './../site/contact/contact';
 
-import Login from './../dashboard/login/login';
+import Login from './../login/login';
+
+import AuthOrDashboard from './authOrDashboard';
 
 import DashboardHome from './../dashboard/home/home';
+import DashboardUsers from './../dashboard/users/users';
+import DashboardSections from './../dashboard/sections/sections';
+import DashboardProjects from './../dashboard/projects/projects';
+
 
 export default props => (
     <Router history={hashHistory}>
@@ -17,8 +23,11 @@ export default props => (
         <Route path='about' component={About} />
         <Route path='contact' component={Contact} />
         <Route path='login' component={Login} />
-        <Route path='dashboard' component={DashboardHome}>
+        <Route path='dashboard' component={AuthOrDashboard}>
             <IndexRoute component={DashboardHome} />
+            <Route path='users' component={DashboardUsers} />
+            <Route path='sections' component={DashboardSections} />
+            <Route path='projects' component={DashboardProjects} />
         </Route>
         <Redirect from='*' to='/' />
     </Router>
