@@ -21,9 +21,7 @@ export default props => (
         <section>
             <ul className="actions vertical">
                 <li>
-                    <a href="#" className="button big fit">
-                    <span className="icon fa-sign-out"></span> Sair
-                    </a>
+                    <button className="button fit icon fa-sign-out">Sair</button>
                 </li>
             </ul>
         </section>
