@@ -8,7 +8,7 @@ class AuthOrDashboard extends Component {
     }
 
     render() {
-        return <Dashboard>{this.props.children}</Dashboard>
+        return <Dashboard>{this.props.children}</Dashboard>;
     }
 
 }
