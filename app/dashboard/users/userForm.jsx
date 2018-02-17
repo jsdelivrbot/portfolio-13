@@ -3,69 +3,49 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm, Field, formValueSelector } from 'redux-form';
 
-import { getUsers } from './usersActions';
+import { update } from './usersActions';
+import inputForm from './../common_template/inputForm';
 
 class UserForm extends Component {
 
     componentWillMount() {
-        this.props.getUsers();
+        this.props.update();
     }
 
     render() {
-        const { params } = this.props,
-            title = (params && params.id) ? 'Atualizar' : 'Adicionar';
-        
+        const { action, id, handleSubmit } = this.props,
+            title = (id) ? 'Atualizar' : 'Adicionar';
         return (
             <main role="main" id="main">
             <h2>Usuário</h2>
                 <section className="bg-white">
                     <h3>{title}</h3>
-                    <hr/>
-                    <form role="form">
+                    <hr/> 
+                    <form role="form" onSubmit={handleSubmit}>
                         <div className="row uniform">
-                            <div className="12u">
-                                <label htmlFor="userName">Nome</label>
-                                <input type="text" name="userName" id="userName" value="" placeholder="Digite seu Nome" />
-                            </div>
-
-                            <div className="12u">
-                                <label htmlFor="userEmail">E-mail</label>
-                                <input type="email" name="userEmail" id="userEmail" value="" placeholder="Digite seu E-mail" />
-                            </div>
-
-                            <div className="12u">
-                                <label htmlFor="userPassword">Senha</label>
-                                <input type="password" name="userPassword" id="userPassword" value="" placeholder="Digite sua Senha" />
-                            </div>
-
+                            <Field component={inputForm} cols="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="50" />
+                            <Field component={inputForm} cols="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" />
+                            <Field component={inputForm} cols="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="50" />
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <div className="4u 2u(small)">
-                                <input type="radio" id="userStatusActive" name="userStatus" />
-                                <label htmlFor="userStatusActive">Ativo</label>
-                            </div>
-
-                            <div className="4u 2u(small)">
-                                <input type="radio" id="userStatusInactive" name="userStatus" />
-                                <label htmlFor="userStatusInactive">Inativo</label>
-                            </div>
-                           
-                            
+                            <Field component={inputForm} cols="4u 2u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
+                            <Field component={inputForm} cols="4u 2u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                        
+                        </div>
+                        <hr/>
+                        <div className="12u">
+                            <ul className="actions">
+                                <li><button type="submit" className="button">{title}</button></li>
+                            </ul>
                         </div>
                     </form>
-                    <hr/>
-                    <div className="12u">
-                        <ul className="actions">
-                            <li><button className="button">{title}</button></li>
-                        </ul>
-                    </div>
+                   
                 </section>
             </main>
         );
     }
 }
 
-const mapStateToProps = state => ({users: state.users});
-const mapDispatchToProps = dispatch => bindActionCreators({getUsers}, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
+UserForm  = reduxForm({form: 'userForm', destroyOnUnmount: false})(UserForm);
+const mapDispatchToProps = dispatch => bindActionCreators({update}, dispatch);
+export default connect(null, mapDispatchToProps)(UserForm);

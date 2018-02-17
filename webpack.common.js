@@ -24,6 +24,7 @@ const PATHS = {
 module.exports = {
     entry: [
         './app/index.jsx',
+        'react-redux-toastr/src/styles/index.scss',
         'font-awesome/scss/font-awesome.scss',
         './app/assets/site/main.scss',
         // './app/assets/dashboard/material-dashboard.scss'

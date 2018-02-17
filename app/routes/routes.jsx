@@ -25,9 +25,9 @@ export default props => (
         <Route path='login' component={Login} />
         <Route path='dashboard' component={AuthOrDashboard}>
             <IndexRoute component={DashboardHome} />
-            <Route path='users(/:id)' component={DashboardUsers} />
-            <Route path='sections(/:id)' component={DashboardSections} />
-            <Route path='projects(/:id)' component={DashboardProjects} />
+            <Route path='users(/:action)(/:id)' component={DashboardUsers} />
+            <Route path='sections(/:action)(/:id)' component={DashboardSections} />
+            <Route path='projects(/:action)(/:id)' component={DashboardProjects} />
         </Route>
         <Redirect from='*' to='/' />
     </Router>
