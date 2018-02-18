@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 
-import { getUsers, updateStatus, update, remove } from './usersActions';
+import { getUsers, updateStatus, showForm, remove } from './usersActions';
 
 class UsersList extends Component {
 
@@ -20,7 +20,7 @@ class UsersList extends Component {
 				<td>
 					<ul className="actions">
 						<li><button onClick={()=> this.props.updateStatus(user)} title={`Status: ${(user.status) ? 'Ativo': 'Inativo' }`} className="button small"><span className={`icon ${(user.status) ? 'fa-check': 'fa-times-circle' }`}></span></button></li>
-						<li><button onClick={()=> this.props.update(user)}  title={`Editar: ${user.name}`} className="button small"><span className="icon fa-edit"></span></button></li>
+						<li><button onClick={()=> this.props.showForm(user, 'update')}  title={`Editar: ${user.name}`} className="button small"><span className="icon fa-edit"></span></button></li>
 						<li><button onClick={()=> this.props.remove(user)} title={`Remover: ${user.name}`} className="button small"><span className="icon fa-trash"></span></button></li>
 					</ul>
 				</td>
@@ -36,7 +36,7 @@ class UsersList extends Component {
 					<h2>{title}</h2>
 					<ul className="actions vertical">
 						<li>
-							<Link to="/dashboard/users/create" className="button">Adicionar</Link>
+							<button onClick={()=> this.props.showForm({}, 'create')}  title="Adicionar novo Usuário" className="button">Adicionar</button>
 						</li>
 					</ul>
 					<div className="table-wrapper">
@@ -68,6 +68,6 @@ const mapStateToProps = state => ({
 	users: state.users
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getUsers, updateStatus, update, remove
+    getUsers, updateStatus, showForm, remove
 }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(UsersList);

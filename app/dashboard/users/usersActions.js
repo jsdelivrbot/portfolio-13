@@ -17,10 +17,22 @@ export function getUsers() {
     };
 }
 
-// export function handleSendData(values) {
-//     console.log('handleSendData -> ', values)
-//         //return submit(values, 'post');
-// }
+export function showComponent(componentName) {
+    return {
+        type: 'COMPONENT_SELECTED',
+        payload: componentName
+    };
+}
+
+export function showForm(values, method) {
+    return [
+        initialize('userForm', values),
+        showComponent({
+            name: 'form',
+            method: method
+        })
+    ];
+}
 
 export function create(values) {
     return submit(values, 'post');
@@ -33,10 +45,7 @@ export function updateStatus(values) {
 }
 
 export function update(values) {
-    return [
-        initialize('userForm', values)
-    ];
-    //return submit(values, 'put');
+    return submit(values, 'put');
 }
 
 export function remove(values) {
@@ -49,20 +58,20 @@ function submit(values, method) {
 
         axios[method](`${users}${id}`, values)
             .then(resp => {
-                toastr.success('Sucesso', 'Operação Realizada com sucesso.')
-                dispatch(init())
+                toastr.success('Sucesso', 'Operação Realizada com sucesso.');
+                dispatch(init());
                 window.location.href = '#/dashboard/users';
             })
             .catch(error => {
-                console.log(error)
                 toastr.error('Erro', error);
-            })
+            });
     };
 }
 
 export function init(INITIAL_VALUES) {
     return [
+        showComponent('list'),
         getUsers(),
         initialize('userForm', INITIAL_VALUES)
-    ]
+    ];
 }
