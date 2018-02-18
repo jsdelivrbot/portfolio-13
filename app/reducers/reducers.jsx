@@ -5,7 +5,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 
 import ProjectsReducer from './projectsReducer';
 
-import UsersReducer from './usersReducer';
+import UsersReducer from './../dashboard/users/usersReducer';
 
 const rootReducer = combineReducers({
 	projects: ProjectsReducer,

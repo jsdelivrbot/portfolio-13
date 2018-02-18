@@ -33,12 +33,18 @@ class UsersList extends Component {
 		return (
 			<main role="main" id="main">
 				<section>
-					<h2>{title}</h2>
-					<ul className="actions vertical">
-						<li>
-							<button onClick={()=> this.props.showForm({}, 'create')}  title="Adicionar novo Usuário" className="button">Adicionar</button>
-						</li>
-					</ul>
+					<div className="row">
+						<div className="2u 12u(small)">
+							<h2>{title}</h2>
+						</div>
+						<div className="6u 12u(small)">
+							<ul className="actions vertical">
+								<li>
+									<button onClick={()=> this.props.showForm({}, 'create')}  title="Adicionar novo Usuário" className="button">Adicionar</button>
+								</li>
+							</ul>
+						</div>
+					</div>
 					<div className="table-wrapper">
 						<table>
 							<thead>
