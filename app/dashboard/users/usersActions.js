@@ -25,6 +25,9 @@ export function showComponent(componentName) {
 }
 
 export function showForm(values, method) {
+    if (Object.keys(values).length) {
+        values.status = (values.status === 1) ? "1" : "0";
+    };
     return [
         initialize('userForm', values),
         showComponent({

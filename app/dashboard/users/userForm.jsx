@@ -22,8 +22,8 @@ class UserForm extends Component {
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputForm} cols="4u 2u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
-                            <Field component={inputForm} cols="4u 2u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
+                            <Field component={inputForm} cols="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
+                            <Field component={inputForm} cols="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
                         </div>
                         <hr/>
                         <div className="12u">
