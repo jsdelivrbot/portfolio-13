@@ -12,7 +12,7 @@ class Projects extends Component {
     }
     
     renderProjects() {
-        const projects = this.props.projects.projects;
+        const projects = this.props.home.projects;
         return projects.map(project => (
             <article className="post" key={`${project.id}`}>
                 <header>
@@ -50,6 +50,6 @@ class Projects extends Component {
 	}
 }
 
-const mapStateToProps = state => ({projects: state.projects});
+const mapStateToProps = state => ({home: state.home});
 const mapDispatchToProps = dispatch => bindActionCreators({getProjects}, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);
