@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-import inputForm from './../common_template/inputForm';
+import inputSelect from './../common_template/inputSelect';
+import inputText from './../common_template/inputText';
+import inputTextArea from './../common_template/inputTextArea';
+import inputOption from './../common_template/inputRadioOrCheck';
 
 class SectionForm extends Component {
 
     render() {
-        const { action, name, handleSubmit, valid, submitting } = this.props,
+        const { action, name, handleSubmit, pristine, submitting } = this.props,
             labelAction = (action === 'update') ? 'Atualizar' : 'Adicionar';
         return (
             <main role="main" id="main">
@@ -16,49 +19,38 @@ class SectionForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={name} encType="multipart/form-data">
                         <div className="row uniform">
-                        <div className="12u">
-                        <label htmlFor="demo-category">demo-category</label>
-                                <div className="select-wrapper">
-                                    <select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-                                </div>
-                            </div>
-                            <Field component={inputForm} colsGrid="12u" label="Titulo" type="text" name="title" placeholder="Digite o titulo" maxlength="70" />
-                            <Field component={inputForm} colsGrid="12u" label="URL Amigável" type="text" name="slug" placeholder="Digite a url amigável" maxlength="70" />
-                            <Field component={inputForm} colsGrid="12u" label="Palavras Chaves" type="textarea" name="meta_keywords" placeholder="Digite as palavras chave" maxlength="255" />
-                            <Field component={inputForm} colsGrid="12u" label="Meta Description" type="textarea" name="meta_description" placeholder="Digite uma breve explicação" maxlength="200" />
-                            <Field component={inputForm} colsGrid="12u" label="Descrição" type="textarea" name="description" placeholder="Digite a descrição" />
-                            <Field component={inputForm} colsGrid="12u" label="Link do Projeto" type="url" name="link" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputForm} colsGrid="12u" label="Capa" type="file" name="cover" placeholder="Link do Projeto" maxlength="150" />
+                            <Field component={inputSelect} />
+                            <Field component={inputText} colsGrid="12u" label="Titulo" type="text" name="title" placeholder="Digite o titulo" maxlength="70" />
+                            <Field component={inputText} colsGrid="12u" label="URL Amigável" type="text" name="slug" placeholder="Digite a url amigável" maxlength="70" />
+                            <Field component={inputTextArea} colsGrid="12u" label="Palavras Chaves" name="meta_keywords" placeholder="Digite as palavras chave" maxlength="255" />
+                            <Field component={inputTextArea} colsGrid="12u" label="Meta Description" name="meta_description" placeholder="Digite uma breve explicação" maxlength="200" />
+                            <Field component={inputTextArea} colsGrid="12u" label="Descrição" name="description" placeholder="Digite a descrição" />
+                            <Field component={inputText} colsGrid="12u" label="Link do Projeto" type="url" name="link" placeholder="Link do Projeto" maxlength="150" />
+                            <Field component={inputText} colsGrid="12u" label="Capa" type="file" name="cover" placeholder="Link do Projeto" maxlength="150" />
                             
                             <div className="12u">
                                 <h4>Galeria de imagens</h4>
                             </div>
-                            <Field component={inputForm} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_01" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputForm} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_02" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputForm} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_03" placeholder="Link do Projeto" maxlength="150" />
+                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_01" placeholder="Link do Projeto" maxlength="150" />
+                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_02" placeholder="Link do Projeto" maxlength="150" />
+                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_03" placeholder="Link do Projeto" maxlength="150" />
 
 
                             <div className="12u">
                                 <h4>Exibição na home</h4>
                             </div>
-                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Ativo" type="checkbox" name="highlight" id="highlight" value="1" />
+                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Ativo" type="checkbox" name="highlight" id="highlight" value="1" />
 
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
-                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
+                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
+                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
                         </div>
                         <hr/>
                         <div className="12u">
                             <ul className="actions">
-                                <li><button type="submit" className="button" disabled={valid || submitting}>{labelAction}</button></li>
+                                <li><button type="submit" className="button" disabled={pristine || submitting}>{labelAction}</button></li>
                             </ul>
                         </div>
                     </form>

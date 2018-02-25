@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-import inputForm from './../common_template/inputForm';
-
+import inputText from './../common_template/inputText';
+import inputRadio from './../common_template/inputRadioOrCheck';
 class UserForm extends Component {
 
     render() {
-        const { action, handleSubmit, pristine, submitting } = this.props,
+        const { action, formName, handleSubmit, pristine, submitting } = this.props,
             labelAction = (action === 'update') ? 'Atualizar' : 'Adicionar';
         return (
             <main role="main" id="main">
@@ -14,16 +14,21 @@ class UserForm extends Component {
                 <section className="bg-white">
                     <h3>{labelAction}</h3>
                     <hr/> 
-                    <form role="form" onSubmit={handleSubmit}>
+                    <form role="form" onSubmit={handleSubmit} name={formName}>
                         <div className="row uniform">
-                            <Field component={inputForm} colsGrid="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="150" />
-                            <Field component={inputForm} colsGrid="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" />
-                            <Field component={inputForm} colsGrid="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="40" />
+                            <Field component={inputText} colsGrid="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="150" required />
+                            <Field component={inputText} colsGrid="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" required />
+                            <Field component={inputText} colsGrid="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="40" required />
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
-                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
+                            <Field component={inputRadio} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" required />  
+
+                            <div className="4u 12u(small)">
+                                <Field name="status" id="userStatusActive" component="input" type="radio" value="1" required />
+                                <label htmlFor="userStatusActive">Ativo</label>
+                            </div>
+
                         </div>
                         <hr/>
                         <div className="12u">

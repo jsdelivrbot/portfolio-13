@@ -31,7 +31,7 @@ export function showForm(values, method) {
     return [
         initialize('userForm', values),
         showComponent({
-            name: 'form',
+            name: 'userForm',
             method: method
         })
     ];

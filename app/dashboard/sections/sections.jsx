@@ -18,7 +18,7 @@ class Sections extends Component {
         if(component === 'list') {
             return <List />;
         } else {
-            return <Form onSubmit={this.props[component.method]} action={component.method} />;
+            return <Form onSubmit={this.props[component.method]} action={component.method} formName={component.name} />;
         };
         
     }
