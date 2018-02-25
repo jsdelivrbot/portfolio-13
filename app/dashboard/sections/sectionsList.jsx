@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getUsers, updateStatus, showForm, remove } from './usersActions';
+import { getSections, updateStatus, showForm, remove } from './sectionsActions';
 
-class UsersList extends Component {
+class SectionsList extends Component {
 
 	componentWillMount() {
-		this.props.getUsers();
+		this.props.getSections();
 	}
 
 	renderRows() {
-		const users = this.props.users.users || [];
-		return users.map(user => (
-			<tr key={`${user.id}`}>
-				<td>{`${user.name}`}</td>
-				<td>{`${user.email}`}</td>
+        const sections = this.props.sections.sections || [];
+		return sections.map(section => (
+			<tr key={`${section.id}`}>
+				<td>{`${section.title}`}</td>
+				<td>{`${section.slug}`}</td>
 				<td>
 					<ul className="actions">
-						<li><button onClick={()=> this.props.updateStatus(user)} title={`Status: ${(user.status) ? 'Ativo': 'Inativo' }`} className="button small"><span className={`icon ${(user.status) ? 'fa-check': 'fa-times-circle' }`}></span></button></li>
-						<li><button onClick={()=> this.props.showForm(user, 'update')}  title={`Editar: ${user.name}`} className="button small"><span className="icon fa-edit"></span></button></li>
-						<li><button onClick={()=> this.props.remove(user)} title={`Remover: ${user.name}`} className="button small"><span className="icon fa-trash"></span></button></li>
+						<li><button onClick={()=> this.props.updateStatus(section)} title={`Status: ${(section.status) ? 'Ativo': 'Inativo' }`} className="button small"><span className={`icon ${(section.status) ? 'fa-check': 'fa-times-circle' }`}></span></button></li>
+						<li><button onClick={()=> this.props.showForm(section, 'update')}  title={`Editar: ${section.title}`} className="button small"><span className="icon fa-edit"></span></button></li>
+						<li><button onClick={()=> this.props.remove(section)} title={`Remover: ${section.title}`} className="button small"><span className="icon fa-trash"></span></button></li>
 					</ul>
 				</td>
 			</tr>
@@ -28,7 +28,7 @@ class UsersList extends Component {
 	}
 
 	render() {
-		const title = 'Usuários';
+		const title = 'Seções';
 		return (
 			<main role="main" id="main">
 				<section>
@@ -49,7 +49,7 @@ class UsersList extends Component {
 							<thead>
 								<tr>
 									<th>Nome</th>
-									<th>E-mail</th>
+									<th>URL</th>
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
@@ -70,9 +70,9 @@ class UsersList extends Component {
 }
 
 const mapStateToProps = state => ({
-	users: state.users
+	sections: state.sections
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getUsers, updateStatus, showForm, remove
+    getSections, updateStatus, showForm, remove
 }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
+export default connect(mapStateToProps, mapDispatchToProps)(SectionsList);

@@ -6,13 +6,15 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 import ProjectsReducer from './projectsReducer';
 
 import UsersReducer from './../dashboard/users/usersReducer';
+import SectionsReducer from './../dashboard/sections/sectionsReducer';
 
 const rootReducer = combineReducers({
 	projects: ProjectsReducer,
 	auth: AuthReducer,
 	form: formReducer,
 	toastr: toastrReducer,
-	users: UsersReducer
+	users: UsersReducer,
+	sections: SectionsReducer
 });
 
 export default rootReducer;

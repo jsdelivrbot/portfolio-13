@@ -16,8 +16,8 @@ class SectionForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit}>
                         <div className="row uniform">
-                            <Field component={inputForm} colsGrid="12u" label="Titulo" type="text" name="name" placeholder="Digite o titulo" maxlength="70" />
-                            <Field component={inputForm} colsGrid="12u" label="URL Amigável" type="text" name="email" placeholder="Digite a url amigável" maxlength="70" />
+                            <Field component={inputForm} colsGrid="12u" label="Titulo" type="text" name="title" placeholder="Digite o titulo" maxlength="70" />
+                            <Field component={inputForm} colsGrid="12u" label="URL Amigável" type="text" name="slug" placeholder="Digite a url amigável" maxlength="70" />
                             <Field component={inputForm} colsGrid="12u" label="Palavras Chaves" type="textarea" name="meta_keywords" placeholder="Digite as palavras chave" maxlength="255" />
                             <Field component={inputForm} colsGrid="12u" label="Meta Description" type="textarea" name="meta_description" placeholder="Digite uma breve explicação" maxlength="200" />
                             <Field component={inputForm} colsGrid="12u" label="Descrição" type="textarea" name="description" placeholder="Digite a descrição" maxlength="40" />

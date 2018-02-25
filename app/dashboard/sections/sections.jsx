@@ -1,67 +1,31 @@
 import React, { Component } from 'react';
-import Header from './../common_template/header';
-import Sidebar from './../common_template/sidebar';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import List from './sectionsList';
+import Form from './sectionForm';
+import { showComponent, create, update } from './sectionsActions';
 
 class Sections extends Component {
 
     componentWillMount() {
-
+        this.props.showComponent('list');
     }
-
+    
     render() {
-        const title = 'Sections Page';
-        return (
-            <main role="main" id="main">
-                <section>
-                    <h3>{title}</h3>
-                    <div className="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Item One</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>29.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Two</td>
-                                <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                                <td>19.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Three</td>
-                                <td> Morbi faucibus arcu accumsan lorem.</td>
-                                <td>29.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Four</td>
-                                <td>Vitae integer tempus condimentum.</td>
-                                <td>19.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Five</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>29.99</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colSpan="2"></td>
-                                <td>100.00</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                </section>
-            </main>
-        );
+        const { component } = this.props;
+
+        if(component === 'list') {
+            return <List />;
+        } else {
+            return <Form onSubmit={this.props[component.method]} action={component.method} />;
+        };
+        
     }
 }
 
-export default Sections;
+const mapStateToProps = state => ({ component: state.sections.component });
+const mapDispatchToProps = dispatch => bindActionCreators({
+    showComponent, create, update
+}, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(Sections);

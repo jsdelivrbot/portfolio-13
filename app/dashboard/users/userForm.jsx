@@ -16,14 +16,14 @@ class UserForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit}>
                         <div className="row uniform">
-                            <Field component={inputForm} cols="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="150" />
-                            <Field component={inputForm} cols="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" />
-                            <Field component={inputForm} cols="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="40" />
+                            <Field component={inputForm} colsGrid="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="150" />
+                            <Field component={inputForm} colsGrid="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" />
+                            <Field component={inputForm} colsGrid="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="40" />
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputForm} cols="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
-                            <Field component={inputForm} cols="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
+                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
+                            <Field component={inputForm} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
                         </div>
                         <hr/>
                         <div className="12u">
