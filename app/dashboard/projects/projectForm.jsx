@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { getSections } from './../sections/sectionsActions';
 class ProjectForm extends Component {
 
+    componentWillMount() {
+		this.props.getSections();
+	}
+
     render() {
-        const { action, name, handleSubmit, pristine, submitting } = this.props,
+        const { sections, action, formName, handleSubmit, pristine, submitting } = this.props,
             labelAction = (action === 'update') ? 'Atualizar' : 'Adicionar';
         return (
             <main role="main" id="main">
@@ -11,19 +19,18 @@ class ProjectForm extends Component {
                 <section className="bg-white">
                     <h3>{labelAction}</h3>
                     <hr/> 
-                    <form role="form" onSubmit={handleSubmit} name={name} encType="multipart/form-data">
+                    <form role="form" onSubmit={handleSubmit} name={formName} encType="multipart/form-data">
                         <div className="row uniform">
                         
                         <div className="12u">
-                            <label htmlFor="demo-category">demo-category</label>
+                            <label htmlFor="section_id">Seção</label>
                             <div className="select-wrapper">
-                                <select name="demo-category" id="demo-category">
-                                <option value="">- Category -</option>
-                                <option value="1">Manufacturing</option>
-                                <option value="1">Shipping</option>
-                                <option value="1">Administration</option>
-                                <option value="1">Human Resources</option>
-                                </select>
+                                <Field component="select" name="section_id" id="section_id" required>
+                                    <option value="">Selecione uma seção...</option>
+                                    <option value="1">Total</option>
+                                    <option value="2">Total 02</option>
+                                    <option value="3">Total 03</option>
+                                </Field>
                             </div>
                         </div>
  
@@ -54,21 +61,26 @@ class ProjectForm extends Component {
 
                             <div className="12u">
                                 <label htmlFor="link">Link do Projeto</label>
-                                <Field component="textarea" type="url" id="link" name="link" placeholder="Link de publicação do projeto" maxLength="150" required />
+                                <Field component="input" type="url" id="link" name="link" placeholder="Link de publicação do projeto" maxLength="150" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="folder_files">Pasta das Imagens</label>
+                                <Field component="input" type="text" id="folder_files" name="folder_files" placeholder="Digite o nome da pasta onde serão salvas as imagens" maxLength="70" />
                             </div>
 
                             <div className="12u">
                                 <label htmlFor="cover">Capa</label>
-                                <Field component="input" type="file" id="cover" name="cover" placeholder="Capa do Projeto" maxLength="150" required />
+                                <Field component="input" type="file" id="cover" name="cover" placeholder="Capa do Projeto" maxLength="150" />
                             </div>
                             
                             <div className="12u">
                                 <label htmlFor="gallery">Galeria de imagens</label>
-                                <Field component="input" type="file" id="gallery" name="gallery" placeholder="Galeria do Projeto" maxLength="150" required />
+                                <Field component="input" type="file" id="gallery" name="gallery" placeholder="Galeria do Projeto" maxLength="150" />
                             </div>
 
                             <div className="4u 12u(small)">
-                                <Field component="input" name="highlight" id="highlight" type="checkbox" value="1" />
+                                <Field component="input" name="highlight" id="highlight" type="radio" value="1" />
                                 <label htmlFor="highlight">Exibição na home</label>
                             </div>
 
@@ -99,4 +111,10 @@ class ProjectForm extends Component {
 }
 
 ProjectForm  = reduxForm({form: 'projectForm', destroyOnUnmount: false})(ProjectForm);
-export default ProjectForm;
+const mapStateToProps = state => ({
+	sections: state.sections
+});
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getSections
+}, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);

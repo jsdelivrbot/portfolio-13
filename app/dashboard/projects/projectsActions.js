@@ -57,7 +57,7 @@ export function remove(values) {
 }
 
 function submit(values, method) {
-    console.log('values', values)
+    console.log('submit -> ', values)
     return dispatch => {
         const id = (values.id && method === 'delete') ? `/${values.id }` : '';
 

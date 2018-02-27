@@ -28,7 +28,7 @@ class UserForm extends Component {
                             </div>
 
                             <div className="12u">
-                                <label htmlFor="password">Nome</label>
+                                <label htmlFor="password">Senha</label>
                                 <Field component="input" id="password"  type="password" name="password" placeholder="Digite sua Senha" maxLength="40" required />
                             </div>
 
