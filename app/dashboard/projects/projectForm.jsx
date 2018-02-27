@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-
-import inputSelect from './../common_template/inputSelect';
-import inputText from './../common_template/inputText';
-import inputTextArea from './../common_template/inputTextArea';
-import inputOption from './../common_template/inputRadioOrCheck';
-
-class SectionForm extends Component {
+class ProjectForm extends Component {
 
     render() {
         const { action, name, handleSubmit, pristine, submitting } = this.props,
@@ -19,33 +13,77 @@ class SectionForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={name} encType="multipart/form-data">
                         <div className="row uniform">
-                            <Field component={inputSelect} />
-                            <Field component={inputText} colsGrid="12u" label="Titulo" type="text" name="title" placeholder="Digite o titulo" maxlength="70" />
-                            <Field component={inputText} colsGrid="12u" label="URL Amigável" type="text" name="slug" placeholder="Digite a url amigável" maxlength="70" />
-                            <Field component={inputTextArea} colsGrid="12u" label="Palavras Chaves" name="meta_keywords" placeholder="Digite as palavras chave" maxlength="255" />
-                            <Field component={inputTextArea} colsGrid="12u" label="Meta Description" name="meta_description" placeholder="Digite uma breve explicação" maxlength="200" />
-                            <Field component={inputTextArea} colsGrid="12u" label="Descrição" name="description" placeholder="Digite a descrição" />
-                            <Field component={inputText} colsGrid="12u" label="Link do Projeto" type="url" name="link" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputText} colsGrid="12u" label="Capa" type="file" name="cover" placeholder="Link do Projeto" maxlength="150" />
+                        
+                        <div className="12u">
+                            <label htmlFor="demo-category">demo-category</label>
+                            <div className="select-wrapper">
+                                <select name="demo-category" id="demo-category">
+                                <option value="">- Category -</option>
+                                <option value="1">Manufacturing</option>
+                                <option value="1">Shipping</option>
+                                <option value="1">Administration</option>
+                                <option value="1">Human Resources</option>
+                                </select>
+                            </div>
+                        </div>
+ 
+                            <div className="12u">
+                                <label htmlFor="title">Titulo</label>
+                                <Field component="input" type="text" id="title" name="title" placeholder="Digite o titulo" maxLength="70" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="slug">URL Amigável</label>
+                                <Field component="input" type="text" id="slug" name="slug" placeholder="Digite a url amigável" maxLength="70" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="meta_keywords">Palavras Chaves</label>
+                                <Field component="textarea" type="text" id="meta_keywords" name="meta_keywords" placeholder="Digite as palavras chave" maxLength="255" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="meta_description">Meta Description</label>
+                                <Field component="textarea" type="text" id="meta_description" name="meta_description" placeholder="Digite uma breve explicação" maxLength="200" required />
+                            </div>
+
+                             <div className="12u">
+                                <label htmlFor="description">Descrição</label>
+                                <Field component="textarea" type="text" id="description" name="description" placeholder="Digite a descrição" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="link">Link do Projeto</label>
+                                <Field component="textarea" type="url" id="link" name="link" placeholder="Link de publicação do projeto" maxLength="150" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="cover">Capa</label>
+                                <Field component="input" type="file" id="cover" name="cover" placeholder="Capa do Projeto" maxLength="150" required />
+                            </div>
                             
                             <div className="12u">
-                                <h4>Galeria de imagens</h4>
+                                <label htmlFor="gallery">Galeria de imagens</label>
+                                <Field component="input" type="file" id="gallery" name="gallery" placeholder="Galeria do Projeto" maxLength="150" required />
                             </div>
-                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_01" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_02" placeholder="Link do Projeto" maxlength="150" />
-                            <Field component={inputText} colsGrid="12u" label="Galeria de imagens" type="file" name="gallery" id="gallery_03" placeholder="Link do Projeto" maxlength="150" />
 
-
-                            <div className="12u">
-                                <h4>Exibição na home</h4>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="highlight" id="highlight" type="checkbox" value="1" />
+                                <label htmlFor="highlight">Exibição na home</label>
                             </div>
-                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Ativo" type="checkbox" name="highlight" id="highlight" value="1" />
 
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" />
-                            <Field component={inputOption} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" />                    
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="status" id="userStatusActive" type="radio" value="1" required />
+                                <label htmlFor="userStatusActive">Ativo</label>
+                            </div>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="status" id="userStatusInactive" type="radio" value="0" required />
+                                <label htmlFor="userStatusInactive">Inativo</label>
+                            </div>  
+
                         </div>
                         <hr/>
                         <div className="12u">
@@ -60,5 +98,5 @@ class SectionForm extends Component {
     }
 }
 
-SectionForm  = reduxForm({form: 'sectionForm', destroyOnUnmount: false})(SectionForm);
-export default SectionForm;
+ProjectForm  = reduxForm({form: 'projectForm', destroyOnUnmount: false})(ProjectForm);
+export default ProjectForm;

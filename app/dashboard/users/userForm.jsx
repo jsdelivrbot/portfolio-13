@@ -16,18 +16,33 @@ class UserForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={formName}>
                         <div className="row uniform">
-                            <Field component={inputText} colsGrid="12u" label="Nome" type="text" name="name" placeholder="Digite seu Nome" maxlength="150" required />
-                            <Field component={inputText} colsGrid="12u" label="E-mail" type="email" name="email" placeholder="Digite seu E-mail" maxlength="50" required />
-                            <Field component={inputText} colsGrid="12u" label="Senha" type="password" name="password" placeholder="Digite sua Senha" maxlength="40" required />
+
+                            <div className="12u">
+                                <label htmlFor="name">Nome</label>
+                                <Field component="input" id="name" type="text" name="name" placeholder="Digite seu Nome" maxLength="150" required />
+                            </div>
+                            
+                            <div className="12u">
+                                <label htmlFor="email">E-mail</label>
+                                <Field component="input" id="email" type="email" name="email" placeholder="Digite seu E-mail" maxLength="50" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="password">Nome</label>
+                                <Field component="input" id="password"  type="password" name="password" placeholder="Digite sua Senha" maxLength="40" required />
+                            </div>
+
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputRadio} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" required />  
-
                             <div className="4u 12u(small)">
-                                <Field name="status" id="userStatusActive" component="input" type="radio" value="1" required />
+                                <Field component="input" name="status" id="userStatusActive" type="radio" value="1" required />
                                 <label htmlFor="userStatusActive">Ativo</label>
                             </div>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="status" id="userStatusInactive" type="radio" value="0" required />
+                                <label htmlFor="userStatusInactive">Inativo</label>
+                            </div> 
 
                         </div>
                         <hr/>

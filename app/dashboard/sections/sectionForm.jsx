@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-
-import inputText from './../common_template/inputText';
-import inputTextArea from './../common_template/inputTextArea';
-import inputRadio from './../common_template/inputRadioOrCheck';
-
 class SectionForm extends Component {
 
     render() {
@@ -18,16 +13,44 @@ class SectionForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={formName}>
                         <div className="row uniform">
-                            <Field component={inputText} colsGrid="12u" label="Titulo" type="text" name="title" placeholder="Digite o titulo" maxlength="70" required />
-                            <Field component={inputText} colsGrid="12u" label="URL Amigável" type="text" name="slug" placeholder="Digite a url amigável" maxlength="70" required />
-                            <Field component={inputTextArea} colsGrid="12u" label="Palavras Chaves" name="meta_keywords" placeholder="Digite as palavras chave" maxlength="255" required />
-                            <Field component={inputTextArea} colsGrid="12u" label="Meta Description" name="meta_description" placeholder="Digite uma breve explicação" maxlength="200" required />
-                            <Field component={inputTextArea} colsGrid="12u" label="Descrição" name="description" placeholder="Digite a descrição" maxlength="40" required />
+
+                            <div className="12u">
+                                <label htmlFor="title">Titulo</label>
+                                <Field component="input" type="text" id="title" name="title" placeholder="Digite o titulo" maxLength="70" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="slug">URL Amigável</label>
+                                <Field component="input" type="text" id="slug" name="slug" placeholder="Digite a url amigável" maxLength="70" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="meta_keywords">Palavras Chaves</label>
+                                <Field component="textarea" type="text" id="meta_keywords" name="meta_keywords" placeholder="Digite as palavras chave" maxLength="255" required />
+                            </div>
+
+                            <div className="12u">
+                                <label htmlFor="meta_description">Meta Description</label>
+                                <Field component="textarea" type="text" id="meta_description" name="meta_description" placeholder="Digite uma breve explicação" maxLength="200" required />
+                            </div>
+
+                             <div className="12u">
+                                <label htmlFor="description">Descrição</label>
+                                <Field component="textarea" type="text" id="description" name="description" placeholder="Digite a descrição" required />
+                            </div>
+                            
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>
-                            <Field component={inputRadio} colsGrid="4u 12u(small)" label="Ativo" type="radio" name="status" id="userStatusActive" value="1" required />
-                            <Field component={inputRadio} colsGrid="4u 12u(small)" label="Inativo" type="radio" name="status" id="userStatusInactive" value="0" required />                    
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="status" id="userStatusActive" type="radio" value="1" required />
+                                <label htmlFor="userStatusActive">Ativo</label>
+                            </div>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="status" id="userStatusInactive" type="radio" value="0" required />
+                                <label htmlFor="userStatusInactive">Inativo</label>
+                            </div>                   
+                        
                         </div>
                         <hr/>
                         <div className="12u">
