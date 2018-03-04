@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+
+import Text from './../common_template/form/inputText';
+import TextArea from './../common_template/form/inputTextArea';
+import { required } from './../common_template/form/validators';
 class SectionForm extends Component {
 
     render() {
@@ -13,32 +17,63 @@ class SectionForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={formName}>
                         <div className="row uniform">
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Titulo"
+                                id="title" 
+                                name="title"
+                                type="text" 
+                                placeholder="Digite o titulo" 
+                                maxlength="70"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="title">Titulo</label>
-                                <Field component="input" type="text" id="title" name="title" placeholder="Digite o titulo" maxLength="70" required />
-                            </div>
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="12u"
+                                label="URL Amigável"
+                                id="slug" 
+                                name="slug"
+                                type="text" 
+                                placeholder="Digite a url amigável" 
+                                maxlength="70"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="slug">URL Amigável</label>
-                                <Field component="input" type="text" id="slug" name="slug" placeholder="Digite a url amigável" maxLength="70" required />
-                            </div>
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="meta_keywords" 
+                                name="meta_keywords"
+                                placeholder="Digite as palavras chave" 
+                                maxlength="255"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="meta_keywords">Palavras Chaves</label>
-                                <Field component="textarea" type="text" id="meta_keywords" name="meta_keywords" placeholder="Digite as palavras chave" maxLength="255" required />
-                            </div>
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="meta_description" 
+                                name="meta_description"
+                                placeholder="Digite uma breve explicação" 
+                                maxlength="200"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="meta_description">Meta Description</label>
-                                <Field component="textarea" type="text" id="meta_description" name="meta_description" placeholder="Digite uma breve explicação" maxLength="200" required />
-                            </div>
-
-                             <div className="12u">
-                                <label htmlFor="description">Descrição</label>
-                                <Field component="textarea" type="text" id="description" name="description" placeholder="Digite a descrição" required />
-                            </div>
-                            
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="description" 
+                                name="description"
+                                placeholder="Digite a descrição" 
+                                maxlength="999"
+                            />
+                           
                             <div className="12u">
                                 <h4>Status</h4>
                             </div>

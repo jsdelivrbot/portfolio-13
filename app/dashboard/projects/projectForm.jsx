@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { getSections } from './../sections/sectionsActions';
+import Select from './../common_template/form/inputSelect';
+import Text from './../common_template/form/inputText';
+import TextArea from './../common_template/form/inputTextArea';
+import { required } from './../common_template/form/validators';
 class ProjectForm extends Component {
 
     componentWillMount() {
@@ -13,6 +17,7 @@ class ProjectForm extends Component {
     render() {
         const { sections, action, formName, handleSubmit, pristine, submitting } = this.props,
             labelAction = (action === 'update') ? 'Atualizar' : 'Adicionar';
+            console.log('sections -> ', sections)
         return (
             <main role="main" id="main">
             <h2>Projetos</h2>
@@ -21,68 +26,129 @@ class ProjectForm extends Component {
                     <hr/> 
                     <form role="form" onSubmit={handleSubmit} name={formName} encType="multipart/form-data">
                         <div className="row uniform">
-                        
-                        <div className="12u">
-                            <label htmlFor="section_id">Seção</label>
-                            <div className="select-wrapper">
-                                <Field component="select" name="section_id" id="section_id" required>
-                                    <option value="">Selecione uma seção...</option>
-                                    <option value="1">Total</option>
-                                    <option value="2">Total 02</option>
-                                    <option value="3">Total 03</option>
-                                </Field>
-                            </div>
-                        </div>
- 
-                            <div className="12u">
-                                <label htmlFor="title">Titulo</label>
-                                <Field component="input" type="text" id="title" name="title" placeholder="Digite o titulo" maxLength="70" required />
-                            </div>
+                            <Field
+                                name="section_id"
+                                label="Seções"
+                                component={Select}
+                                options={{
+                                    0: 'Front End',
+                                    1: 'Back End',
+                                    2: 'Full Stack'
+                                }}
+                            />
+    
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Titulo"
+                                id="title" 
+                                name="title"
+                                type="text" 
+                                placeholder="Digite o titulo" 
+                                maxlength="70"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="slug">URL Amigável</label>
-                                <Field component="input" type="text" id="slug" name="slug" placeholder="Digite a url amigável" maxLength="70" required />
-                            </div>
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="12u"
+                                label="URL Amigável"
+                                id="slug" 
+                                name="slug"
+                                type="text" 
+                                placeholder="Digite a url amigável" 
+                                maxlength="70"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="meta_keywords">Palavras Chaves</label>
-                                <Field component="textarea" type="text" id="meta_keywords" name="meta_keywords" placeholder="Digite as palavras chave" maxLength="255" required />
-                            </div>
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="meta_keywords" 
+                                name="meta_keywords"
+                                placeholder="Digite as palavras chave" 
+                                maxlength="255"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="meta_description">Meta Description</label>
-                                <Field component="textarea" type="text" id="meta_description" name="meta_description" placeholder="Digite uma breve explicação" maxLength="200" required />
-                            </div>
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="meta_description" 
+                                name="meta_description"
+                                placeholder="Digite uma breve explicação" 
+                                maxlength="200"
+                            />
 
-                             <div className="12u">
-                                <label htmlFor="description">Descrição</label>
-                                <Field component="textarea" type="text" id="description" name="description" placeholder="Digite a descrição" required />
-                            </div>
+                            <Field 
+                                component={TextArea}
+                                validate={required}
+                                colsGrid="12u"
+                                label="Palavras Chaves"
+                                id="description" 
+                                name="description"
+                                placeholder="Digite a descrição" 
+                                maxlength="999"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="link">Link do Projeto</label>
-                                <Field component="input" type="url" id="link" name="link" placeholder="Link de publicação do projeto" maxLength="150" required />
-                            </div>
+                            <Field 
+                                component={Text}
+                                colsGrid="12u"
+                                label="Link do Projeto"
+                                id="link" 
+                                name="link"
+                                type="url" 
+                                placeholder="Digite a url amigável" 
+                                maxlength="150"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="folder_files">Pasta das Imagens</label>
-                                <Field component="input" type="text" id="folder_files" name="folder_files" placeholder="Digite o nome da pasta onde serão salvas as imagens" maxLength="70" />
-                            </div>
+                            <Field 
+                                component={Text}
+                                colsGrid="12u"
+                                label="Pasta das Imagens"
+                                id="folder_files" 
+                                name="folder_files"
+                                type="text" 
+                                placeholder="Digite o nome da pasta onde serão salvas as imagens" 
+                                maxlength="70"
+                            />
 
-                            <div className="12u">
-                                <label htmlFor="cover">Capa</label>
-                                <Field component="input" type="file" id="cover" name="cover" placeholder="Capa do Projeto" maxLength="150" />
-                            </div>
+                            <Field 
+                                component={Text}
+                                colsGrid="12u"
+                                label="Capa"
+                                id="cover" 
+                                name="cover"
+                                type="file" 
+                                placeholder="Capa do Projeto" 
+                                maxlength="150"
+                            />
                             
-                            <div className="12u">
-                                <label htmlFor="gallery">Galeria de imagens</label>
-                                <Field component="input" type="file" id="gallery" name="gallery" placeholder="Galeria do Projeto" maxLength="150" />
-                            </div>
+                            <Field 
+                                component={Text}
+                                colsGrid="12u"
+                                label="Galeria de imagens"
+                                id="cover" 
+                                name="cover"
+                                type="file" 
+                                placeholder="Galeria do Projeto" 
+                                maxlength="150"
+                            />
 
-                            <div className="4u 12u(small)">
-                                <Field component="input" name="highlight" id="highlight" type="radio" value="1" />
-                                <label htmlFor="highlight">Exibição na home</label>
+                            <div className="12u">
+                                <h4>Exibição na home</h4>
                             </div>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="highlight" id="highlightActive" type="radio" value="1" required />
+                                <label htmlFor="highlightActive">Sim</label>
+                            </div>
+                            <div className="4u 12u(small)">
+                                <Field component="input" name="highlight" id="highlightInactive" type="radio" value="0" required />
+                                <label htmlFor="highlightInactive">Não</label>
+                            </div> 
 
                             <div className="12u">
                                 <h4>Status</h4>

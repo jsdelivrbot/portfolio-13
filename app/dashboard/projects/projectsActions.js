@@ -57,11 +57,22 @@ export function remove(values) {
 }
 
 function submit(values, method) {
-    console.log('submit -> ', values)
-    return dispatch => {
-        const id = (values.id && method === 'delete') ? `/${values.id }` : '';
+    console.log('submit -> ', values);
+    const data = values;
+    data.cover = (values.cover && values.cover[0].name) ? values.cover[0].name : undefined;
 
-        axios[method](`${projects}${id}`, values)
+    // 'Content-Type': 'multipart/form-data; boundary=------------------------021ab64c72420e84'
+    const config = {
+        headers: {
+            'Content-Type': 'multipart/form-data;boundary=------------------------021ab64c72420e84',
+            'Accept': 'application/json'
+        }
+    };
+
+    return dispatch => {
+        const id = (data.id && method === 'delete') ? `/${data.id }` : '';
+
+        axios[method](`${projects}${id}`, data)
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com sucesso.');
                 dispatch(init());
