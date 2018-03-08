@@ -8,7 +8,7 @@
         "npm": "5.7.1"
     },
     "scripts": {
-        "start": "index.js",
+        "start": "node index.js",
         "dev": "webpack-dev-server --progress --colors --inline --hot --open --config webpack.dev.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --config webpack.prod.js"
