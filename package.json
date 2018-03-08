@@ -4,7 +4,7 @@
     "description": "Projeto utilizando o React",
     "main": "index.js",
     "engines": {
-        "node": "9.4.4",
+        "node": "6.11.1",
         "npm": "5.6.0"
     },
     "scripts": {
