@@ -58,27 +58,26 @@ export function remove(values) {
 
 function submit(values, method) {
     console.log('submit -> ', values);
-    const data = values;
-    data.cover = (values.cover && values.cover[0].name) ? values.cover[0].name : undefined;
-
+    // const data = values;
+    // data.cover = (values.cover && values.cover[0].name) ? values.cover[0].name : undefined;
     // 'Content-Type': 'multipart/form-data; boundary=------------------------021ab64c72420e84'
     const config = {
         headers: {
-            'Content-Type': 'multipart/form-data;boundary=------------------------021ab64c72420e84',
-            'Accept': 'application/json'
+            'content-type': 'multipart/form-data; boundary=------------------------X-PORTFOLIO-BOUNDARY'
         }
     };
 
     return dispatch => {
-        const id = (data.id && method === 'delete') ? `/${data.id }` : '';
+        const id = (values.id && method === 'delete') ? `/${values.id }` : '';
 
-        axios[method](`${projects}${id}`, data)
+        axios[method](`${projects}${id}`, values, config)
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com sucesso.');
                 dispatch(init());
                 window.location.href = '#/dashboard/projects';
             })
             .catch(error => {
+                console.log('error -> ', error)
                 toastr.error('Erro', error);
             });
     };

@@ -31,9 +31,9 @@ class ProjectForm extends Component {
                                 label="Seções"
                                 component={Select}
                                 options={{
-                                    0: 'Front End',
-                                    1: 'Back End',
-                                    2: 'Full Stack'
+                                    1: 'Front End',
+                                    2: 'Back End',
+                                    3: 'Full Stack'
                                 }}
                             />
     
@@ -76,10 +76,10 @@ class ProjectForm extends Component {
                                 component={TextArea}
                                 validate={required}
                                 colsGrid="12u"
-                                label="Palavras Chaves"
+                                label="Síntese"
                                 id="meta_description" 
                                 name="meta_description"
-                                placeholder="Digite uma breve explicação" 
+                                placeholder="Digite uma breve síntese" 
                                 maxlength="200"
                             />
 
@@ -87,7 +87,7 @@ class ProjectForm extends Component {
                                 component={TextArea}
                                 validate={required}
                                 colsGrid="12u"
-                                label="Palavras Chaves"
+                                label="Descrição"
                                 id="description" 
                                 name="description"
                                 placeholder="Digite a descrição" 
@@ -131,8 +131,19 @@ class ProjectForm extends Component {
                                 component={Text}
                                 colsGrid="12u"
                                 label="Galeria de imagens"
-                                id="cover" 
-                                name="cover"
+                                id="gallery_0" 
+                                name="gallery"
+                                type="file" 
+                                placeholder="Galeria do Projeto" 
+                                maxlength="150"
+                            />
+
+                            <Field 
+                                component={Text}
+                                colsGrid="12u"
+                                label="Galeria de imagens"
+                                id="gallery_1" 
+                                name="gallery"
                                 type="file" 
                                 placeholder="Galeria do Projeto" 
                                 maxlength="150"

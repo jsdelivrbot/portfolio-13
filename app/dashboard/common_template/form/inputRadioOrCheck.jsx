@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
 
-
 const RadioOrCheck = props => {
 
     if (props && props.input && props.options) {
@@ -31,17 +30,3 @@ const RadioOrCheck = props => {
 };
   
 export default RadioOrCheck;
-
-// export default props => {
-//     return (
-//         <div className={props.colsGrid}>
-//             <input 
-//                 {...props.input} 
-//                 name={props.name} 
-//                 id={props.id} 
-//                 type={props.type} 
-//             />
-//             <label htmlFor={props.id}>{props.label}</label>
-//         </div>
-//     );
-// };
