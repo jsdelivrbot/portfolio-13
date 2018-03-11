@@ -20,7 +20,6 @@ class Projects extends Component {
                         <h2><a href={`#single/${project.slug}`}>{`${project.title}`}</a></h2>
                     </div>
                     <div className="meta">
-                        <time className="published" dateTime={`${project.data_insert}`}>{`${project.data_insert}`}</time>
                         <a href={`#section/${project.category}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt={`${project.category}`} /></a>
                     </div>
                 </header>
