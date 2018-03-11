@@ -13,41 +13,59 @@ export default props => (
                     <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum
                         ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
                 </div>
-                <div className="meta">
-                    <time className="published" dateTime="2015-11-01">November 1, 2015</time>
-                    <a href="#" className="author"><span className="name">Jane Doe</span><img src="./assets/images/avatar.jpg" alt="" /></a>
-                </div>
             </header>
-            <figure className="image featured"><img src="./assets/images/pic01.jpg" alt="" /></figure>
-
-            
-            <div className="box alt">
-                        <div className="row uniform">
-                            <div className="12u$"><span className="image fit"><img src="./assets/images/pic02.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                            <div className="4u$"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
-                            <div className="4u$"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                            <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                            <div className="4u$"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
+            <section>
+                <form method="post" action="#">
+                    <div className="row uniform">
+                        <div className="6u 12u(xsmall)">
+                            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                        </div>
+                        <div className="6u 12u(xsmall)">
+                            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+                        </div>
+                        <div className="12u">
+                            <div className="select-wrapper">
+                                <select name="demo-category" id="demo-category">
+                                    <option value="">- Category -</option>
+                                    <option value="1">Manufacturing</option>
+                                    <option value="1">Shipping</option>
+                                    <option value="1">Administration</option>
+                                    <option value="1">Human Resources</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="4u 12u(small)">
+                            <input type="radio" id="demo-priority-low" name="demo-priority" />
+                            <label htmlFor="demo-priority-low">Low</label>
+                        </div>
+                        <div className="4u 12u(small)">
+                            <input type="radio" id="demo-priority-normal" name="demo-priority" />
+                            <label htmlFor="demo-priority-normal">Normal</label>
+                        </div>
+                        <div className="4u$ 12u(small)">
+                            <input type="radio" id="demo-priority-high" name="demo-priority" />
+                            <label htmlFor="demo-priority-high">High</label>
+                        </div>
+                        <div className="6u 12u(small)">
+                            <input type="checkbox" id="demo-copy" name="demo-copy" />
+                            <label htmlFor="demo-copy">Email me a copy</label>
+                        </div>
+                        <div className="6u$ 12u(small)">
+                            <input type="checkbox" id="demo-human" name="demo-human" />
+                            <label htmlFor="demo-human">Not a robot</label>
+                        </div>
+                        <div className="12u">
+                            <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                        </div>
+                        <div className="12u">
+                            <ul className="actions">
+                                <li><input type="submit" value="Send Message" /></li>
+                            </ul>
                         </div>
                     </div>
-     
-
-
-            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-            <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p>
-            <footer>
-                <ul className="stats">
-                    <li><a href="#">General</a></li>
-                    <li><a href="#" className="icon fa-heart">28</a></li>
-                    <li><a href="#" className="icon fa-comment">128</a></li>
-                </ul>
-            </footer>
-        </article>
+                </form>
+            </section>
+            </article>
         </main>
         <Footer />
     </div>

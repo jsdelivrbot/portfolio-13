@@ -9,7 +9,7 @@ export default props => (
             <li><a href="#" className="fa-rss"><span className="label">RSS</span></a></li>
             <li><a href="#" className="fa-envelope"><span className="label">Email</span></a></li>
         </ul>
-        <p className="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        <p className="copyright">&copy; Untitled. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>.</p>
     </section>
 
 )

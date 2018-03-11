@@ -41,7 +41,7 @@ export default props => (
             <h2>About</h2>
             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
             <ul className="actions">
-                <li><a href="#about" className="button">Learn More</a></li>
+                <li><a href="/#about" className="button">Saiba mais</a></li>
             </ul>
         </section>
         <Footer />

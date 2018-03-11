@@ -17,7 +17,7 @@ class Projects extends Component {
             <article className="post" key={`${project.id}`}>
                 <header>
                     <div className="title">
-                        <h2><a href={`#single/${project.slug}`}>{`${project.title}`}</a></h2>
+                        <h2><a href={`#project/${project.slug}`}>{`${project.title}`}</a></h2>
                     </div>
                     <div className="meta">
                         <a href={`#section/${project.category}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt={`${project.category}`} /></a>
@@ -27,7 +27,7 @@ class Projects extends Component {
                 <p>{`${project.meta_description}`}</p>
                 <footer>
                     <ul className="actions">
-                        <li><a href={`#single/${project.slug}`} className="button big">Continue Reading</a></li>
+                        <li><a href={`#project/${project.slug}`} className="button big">Continue Reading</a></li>
                     </ul>
                     <ul className="stats">
                         <li><a href={`#section/${project.category}`}>{`${project.category}`}</a></li>

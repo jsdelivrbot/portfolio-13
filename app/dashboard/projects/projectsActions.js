@@ -57,28 +57,26 @@ export function remove(values) {
 }
 
 function submit(values, method) {
-    console.log('submit -> ', values);
-    // const data = values;
-    // data.cover = (values.cover && values.cover[0].name) ? values.cover[0].name : undefined;
     // 'Content-Type': 'multipart/form-data; boundary=------------------------021ab64c72420e84'
     const config = {
         headers: {
-            'content-type': 'multipart/form-data; boundary=------------------------X-PORTFOLIO-BOUNDARY'
+            'content-type': 'multipart/form-data'
         }
     };
 
     return dispatch => {
         const id = (values.id && method === 'delete') ? `/${values.id }` : '';
 
-        axios[method](`${projects}${id}`, values, config)
+        axios[method](`${projects}${id}`, values)
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com sucesso.');
                 dispatch(init());
                 window.location.href = '#/dashboard/projects';
             })
             .catch(error => {
-                console.log('error -> ', error)
                 toastr.error('Erro', error);
+                dispatch(init());
+                window.location.href = '#/dashboard/projects';
             });
     };
 }
