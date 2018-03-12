@@ -32,16 +32,16 @@ class Single extends Component {
                         {`${project.description}`}
                         <div className="box alt">
                             <div className="row uniform">
-                                <div className="12u$"><span className="image fit"><img src="./assets/images/pic02.jpg" alt="" /></span></div>
+                                <div className="12u"><span className="image fit"><img src="./assets/images/pic02.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                                <div className="4u$"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
-                                <div className="4u$"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                                <div className="4u$"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
                             </div>
                         </div>
                     </article>
