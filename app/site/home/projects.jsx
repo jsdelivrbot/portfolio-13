@@ -7,7 +7,7 @@ import { getProjects } from './../../site/home/homeActions';
 
 class Projects extends Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.getProjects();
     }
     

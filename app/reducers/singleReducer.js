@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    project: {}
+    project: [{}]
 };
 
 export default function(state = INITIAL_STATE, action) {

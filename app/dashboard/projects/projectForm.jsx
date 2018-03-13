@@ -10,7 +10,7 @@ import TextArea from './../common_template/form/inputTextArea';
 import { required } from './../common_template/form/validators';
 class ProjectForm extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
 		this.props.getSections();
 	}
 

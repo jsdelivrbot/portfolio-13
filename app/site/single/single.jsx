@@ -8,12 +8,19 @@ import { getProject } from './../../site/single/singleActions';
 
 class Single extends Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.getProject(this.props.params.page);
     }
 
+    renderGallery(gallery, folder_files) {
+        return gallery.map((image, ) => (
+            <div className="4u" key={`${image}`}><span className="image fit"><img src={`${CONSTS.IMAGE_PATH + folder_files}/thumb-${image}`} alt="" /></span></div>
+        ));
+    }
+
     render() {
-		const project = this.props.single.project[0];
+        const project = this.props.single.project[0],
+            gallery = (project.gallery) ? project.gallery.split(',') : [];
         return (
             <div id='wrapper' className="single">
                 <Header />
@@ -32,16 +39,7 @@ class Single extends Component {
                         {`${project.description}`}
                         <div className="box alt">
                             <div className="row uniform">
-                                <div className="12u"><span className="image fit"><img src="./assets/images/pic02.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic05.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic06.jpg" alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src="./assets/images/pic04.jpg" alt="" /></span></div>
+                            { this.renderGallery(gallery, project.folder_files) }
                             </div>
                         </div>
                     </article>
