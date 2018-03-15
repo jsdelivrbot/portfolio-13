@@ -1,4 +1,4 @@
-const userKey = '_portfolio_user';
+const userKey = '_mps_react_app';
 const INITIAL_STATE = {
     user: JSON.parse(localStorage.getItem(userKey)),
     validToken: false

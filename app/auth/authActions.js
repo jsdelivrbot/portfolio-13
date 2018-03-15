@@ -17,6 +17,7 @@ function submit(values, url) {
                 dispatch([
                     { type: 'USER_FETCHED', payload: resp.data }
                 ]);
+                window.location.href = '#/dashboard';
             })
             .catch(e => {
                 e.response.data.errors.forEach(error => toastr.error('Erro', error));
