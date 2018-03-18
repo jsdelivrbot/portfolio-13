@@ -1,4 +1,4 @@
 export default {
-    API_URL: 'http://localhost:8080',
-    IMAGE_PATH: 'http://localhost:8080/images/works/'
+    API_URL: 'https://mps-api.herokuapp.com',
+    IMAGE_PATH: 'https://mps-api.herokuapp.com/images/works/'
 }
