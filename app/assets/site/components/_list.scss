@@ -188,9 +188,9 @@ ul {
             @include vendor('flex-direction', 'row-reverse');
             .image {
                 display: block;
-                margin-right: 1.5em;
-                min-width: 4em;
-                width: 4em;
+                margin-right: 1em;
+                min-width: 2em;
+                width: 2em;
                 img {
                     width: 100%;
                 }
@@ -200,7 +200,7 @@ ul {
                 -ms-flex: 1;
                 h3 {
                     font-size: 0.7em;
-                    margin-top: 0.125em;
+                    margin-top: 0.5em;
                 }
                 .published {
                     display: block;

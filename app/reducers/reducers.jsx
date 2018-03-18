@@ -5,6 +5,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 
 import HomeReducer from './projectsReducer';
 import SingleReducer from './singleReducer';
+import ProjectsSectionReducer from './projectsSectionsReducer';
 
 import UsersReducer from './../dashboard/users/usersReducer';
 import SectionsReducer from './../dashboard/sections/sectionsReducer';
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
 	toastr: toastrReducer,
 	users: UsersReducer,
 	sections: SectionsReducer,
-	projects: ProjectsReducer
+	projects: ProjectsReducer,
+	projectsSections: ProjectsSectionReducer
 });
 
 export default rootReducer;

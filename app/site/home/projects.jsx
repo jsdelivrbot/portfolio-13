@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import CONSTS from './../../common/consts';
-import { getProjects } from './../../site/home/homeActions';
+import { getProjects } from './homeActions';
 
 class Projects extends Component {
 
@@ -20,19 +20,17 @@ class Projects extends Component {
                         <h2><a href={`#project/${project.slug}`}>{`${project.title}`}</a></h2>
                     </div>
                     <div className="meta">
-                        <a href={`#section/${project.category}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt={`${project.category}`} /></a>
+                        <a href={`#sections/${project.categorySlug}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt={`${project.category}`} /></a>
                     </div>
                 </header>
                 <a href="#" className="image featured"><img src={`${CONSTS.IMAGE_PATH + project.folder_files}/${project.cover}`} alt="" /></a>
                 <p>{`${project.meta_description}`}</p>
                 <footer>
                     <ul className="actions">
-                        <li><a href={`#project/${project.slug}`} className="button big">Continue Reading</a></li>
+                        <li><a href={`#project/${project.slug}`} className="button big">Continue lendo</a></li>
                     </ul>
                     <ul className="stats">
-                        <li><a href={`#section/${project.category}`}>{`${project.category}`}</a></li>
-                        <li><a href="#" className="icon fa-heart">28</a></li>
-                        <li><a href="#" className="icon fa-comment">128</a></li>
+                        <li><a href={`#sections/${project.categorySlug}`}>{`${project.category}`}</a></li>
                     </ul>
                 </footer>
             </article>

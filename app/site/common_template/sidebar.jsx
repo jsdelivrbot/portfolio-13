@@ -12,7 +12,7 @@ export default props => (
             </header>
         </section>
 
-        <section>
+        {/* <section>
             <article className="mini-post">
                 <header>
                     <h3><a href="#">Vitae sed condimentum</a></h3>
@@ -21,24 +21,25 @@ export default props => (
                 </header>
                 <a href="#" className="image"><img src="./assets/images/pic04.jpg" alt="" /></a>
             </article>
-        </section>
+        </section> */}
         
-        <section>
+        <section className="blurb">
+            <h2>Seções</h2>
             <ul className="posts">
                 <li>
                     <article>
                         <header>
-                            <h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
-                            <time className="published" >October 20, 2015</time>
+                            <h3><a href="#/sections/web">Front-end</a></h3>
+                            {/* <time className="published" >October 20, 2015</time> */}
                         </header>
-                        <a href="#" className="image"><img src="./assets/images/pic08.jpg" alt="" /></a>
+                        <a href="#/sections/web" className="image"><img src="./assets/images/pic10.jpg" alt="" /></a>
                     </article>
                 </li>
             </ul>
         </section>
 
         <section className="blurb">
-            <h2>About</h2>
+            <h2>Sobre</h2>
             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
             <ul className="actions">
                 <li><a href="/#about" className="button">Saiba mais</a></li>

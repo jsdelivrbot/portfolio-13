@@ -7,12 +7,11 @@ export default props => (
       <h1><a href="#">Future Imperfect</a></h1>
       <nav className="links">
           <ul>
-              <li><a href="#single">Page</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">Sobre</a></li>
+              <li><a href="#contact">Contato</a></li>
           </ul>
       </nav>
-      <nav className="main">
+      {/* <nav className="main">
                 <ul>
                     <li className="search">
                         <a className="fa-search" href="#search">Search</a>
@@ -24,44 +23,28 @@ export default props => (
                         <a className="fa-bars" href="#menu">Menu</a>
                     </li>
                 </ul>
-            </nav>
+            </nav> */}
     </header>
     <section id="menu">
 
-    <section>
+    {/* <section>
                 <form className="search" method="get" action="#search">
                     <input type="text" name="q" placeholder="Search" />
                 </form>
             </section>
-
+*/}
             <section>
                 <ul className="links">
-                    <li>
-                        <a href="#">
-                            <h3>Lorem ipsum</h3>
-                            <p>Feugiat tempus veroeros dolor</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <h3>Dolor sit amet</h3>
-                            <p>Sed vitae justo condimentum</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <h3>Feugiat veroeros</h3>
-                            <p>Phasellus sed ultricies mi congue</p>
-                        </a>
-                    </li>
-                    <li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    {/* <li>
                         <a href="#">
                             <h3>Etiam sed consequat</h3>
                             <p>Porta lectus amet ultricies</p>
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
-            </section>
+            </section> 
 
             <section>
                 <ul className="actions vertical">

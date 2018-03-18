@@ -5,6 +5,7 @@ import Home from './../site/home/home';
 import Single from './../site/single/single';
 import About from './../site/about/about';
 import Contact from './../site/contact/contact';
+import Sections from './../site/sections/sections';
 
 import Login from './../login/login';
 
@@ -22,6 +23,7 @@ export default props => (
         <Route path='project/:page' component={Single} />
         <Route path='about' component={About} />
         <Route path='contact' component={Contact} />
+        <Route path='sections/:section' component={Sections} />
         <Route path='login' component={Login} />
         <Route path='dashboard' component={AuthOrDashboard}>
             <IndexRoute component={DashboardHome} />
@@ -29,6 +31,6 @@ export default props => (
             <Route path='sections(/:action)(/:id)' component={DashboardSections} />
             <Route path='projects(/:action)(/:id)' component={DashboardProjects} />
         </Route>
-        <Redirect from='*' to='/' />
+        <Redirect from='**' to='/' />
     </Router>
 )

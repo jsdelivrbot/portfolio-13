@@ -12,6 +12,10 @@ class Single extends Component {
 		this.props.getProject(this.props.params.page);
     }
 
+    createMarkup(contentHTML) { 
+        return {__html: contentHTML }; 
+    }
+
     renderGallery(gallery, folder_files) {
         return gallery.map((image, ) => (
             <div className="4u" key={`${image}`}><span className="image fit"><img src={`${CONSTS.IMAGE_PATH + folder_files}/thumb-${image}`} alt="" /></span></div>
@@ -32,15 +36,13 @@ class Single extends Component {
                                 <blockquote>{`${project.meta_description}`}</blockquote>
                             </div>
                             <div className="meta">
-                                <a href="#" className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt="" /></a>
+                                <a href={`#sections/${project.categorySlug}`} className="author"><span className="name">{`${project.category}`}</span><img src="./assets/images/avatar.jpg" alt="" /></a>
                             </div>
                         </header>
                         <figure className="image featured"><img src={`${CONSTS.IMAGE_PATH + project.folder_files}/${project.cover}`} alt={`${project.title}`} /></figure>
-                        {`${project.description}`}
+                        <div dangerouslySetInnerHTML={ this.createMarkup(project.description) } />
                         <div className="box alt">
-                            <div className="row uniform">
-                            { this.renderGallery(gallery, project.folder_files) }
-                            </div>
+                            <div className="row uniform">{ this.renderGallery(gallery, project.folder_files) }</div>
                         </div>
                     </article>
                 </main>
