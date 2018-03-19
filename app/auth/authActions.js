@@ -2,15 +2,8 @@ import { toastr } from 'react-redux-toastr';
 import axios from 'axios';
 import CONSTS from './../common/consts';
 
-export function login(values) {
-    return submit(values, `${CONSTS.API_URL}/login`);
-}
-
-export function signup(values) {
-    return submit(values, `${CONSTS.API_URL}/signup`);
-}
-
 function submit(values, url) {
+
     return dispatch => {
         axios.post(url, values)
             .then(resp => {
@@ -20,9 +13,17 @@ function submit(values, url) {
                 window.location.href = '#/dashboard';
             })
             .catch(e => {
-                e.response.data.errors.forEach(error => toastr.error('Erro', error));
+                toastr.error('Erro', e);
             });
     }
+}
+
+export function login(values) {
+    return submit(values, `${CONSTS.API_URL}/login`);
+}
+
+export function signup(values) {
+    return submit(values, `${CONSTS.API_URL}/signup`);
 }
 
 export function logout() {
