@@ -15,9 +15,9 @@ class ProjectForm extends Component {
 	}
 
     render() {
-        const { sections, action, formName, handleSubmit, pristine, submitting } = this.props,
+        const { action, formName, handleSubmit, pristine, submitting } = this.props,
             labelAction = (action === 'update') ? 'Atualizar' : 'Adicionar';
-            console.log('sections -> ', sections)
+        const sections = this.props.sections.sections || [];
         return (
             <main role="main" id="main">
             <h2>Projetos</h2>

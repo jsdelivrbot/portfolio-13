@@ -64,6 +64,8 @@ function submit(values, method) {
         }
     };
 
+    console.log('values -> ', values)
+
     return dispatch => {
         const id = (values.id && method === 'delete') ? `/${values.id }` : '';
 
