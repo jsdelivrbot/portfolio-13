@@ -4,51 +4,56 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { login, signup } from './../auth/authActions';
+import Text from './../dashboard/common_template/form/inputText';
+import { required } from './../dashboard/common_template/form/validators';
 class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { loginMode: true };
-    }
-
-    changeMode() {
-        this.setState({ loginMode: !this.state.loginMode });
-    }
 
     onSubmit(values) {
-        const { login, signup } = this.props;
-        this.state.loginMode ? login(values) : signup(values);
+        const { login } = this.props;
+        login(values);
     }
 
     render() {
-        const { loginMode } = this.state;
-        const { handleSubmit } = this.props;
+        const { handleSubmit, pristine, submitting } = this.props;
         return (
             <div id='wrapper' className="login">
-        <main role="main" id="main">
-        <section className="post">
-            <h3>Login</h3>
-            <form method="post" onSubmit={handleSubmit(v => this.onSubmit(v))}>
-                <div className="row uniform">
-                    <div className="6u 12u(xsmall)">
-                    <label htmlFor="email">Usuário
-                    <Field component="input" type="email" name="email" id="email" value="" placeholder="Digite seu usuário" />
-                        </label>
-                    </div>
-                    <div className="6u 12u(xsmall)">
-                    <label htmlFor="password">Senha
-                    <Field component="input" type="password" name="password" id="password" value="" placeholder="Digite sua senha" />
-                        </label>
-                    </div>
-                    <div className="12u">
-                        <ul className="actions">
-                            <li><input type="submit" value="Entrar" /></li>
-                        </ul>
-                    </div>
-                </div>
-            </form>
-        </section>
-        </main>
-    </div>
+                <main role="main" id="main">
+                <section className="post">
+                    <h3>Login</h3>
+                    <form method="post" onSubmit={handleSubmit(values => this.onSubmit(values))}>
+                        <div className="row uniform">
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="6u 12u(xsmall)"
+                                label="E-mail"
+                                id="email" 
+                                name="email"
+                                type="email" 
+                                placeholder="Digite seu e-mail" 
+                                maxlength="50"
+                            />
+                            <Field 
+                                component={Text}
+                                validate={required}
+                                colsGrid="6u 12u(xsmall)"
+                                label="Senha"
+                                id="password" 
+                                name="password"
+                                type="password" 
+                                placeholder="Digite sua senha" 
+                                maxlength="10"
+                            />
+                            <div className="12u">
+                                <ul className="actions">
+                                    <li><input type="submit" value="Entrar" disabled={pristine || submitting} /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                </main>
+            </div>
         )
     }
 }
