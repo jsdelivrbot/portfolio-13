@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Footer from './footer';
+import { getSections } from './../sections/sectionsActions';
 
-export default props => (
-    <section id="sidebar">
+class Sidebar extends Component {
+
+    componentDidMount() {
+		this.props.getSections();
+    }
+
+    renderSections() {
+        const { sections } = this.props.sections;
+        return sections.map((section) => (
+            <ul className="posts">
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href={`#sections/${section.slug}`}>{`${section.title}`}</a></h3>
+                            {/* <time className="published" >October 20, 2015</time> */}
+                        </header>
+                        <a href={`#sections/${section.slug}`} className="image"><img src="./assets/images/pic10.jpg" alt={`${section.title}`} /></a>
+                    </article>
+                </li>
+            </ul>
+        ));
+    }
+
+    render() {
+        return (
+            <section id="sidebar">
         <section id="intro">
             <a href="#" className="logo"><img src="./assets/images/logo.jpg" alt="Future Imperfect" /></a>
             <header>
@@ -25,17 +52,7 @@ export default props => (
         
         <section className="blurb">
             <h2>Seções</h2>
-            <ul className="posts">
-                <li>
-                    <article>
-                        <header>
-                            <h3><a href="#/sections/web">Front-end</a></h3>
-                            {/* <time className="published" >October 20, 2015</time> */}
-                        </header>
-                        <a href="#/sections/web" className="image"><img src="./assets/images/pic10.jpg" alt="" /></a>
-                    </article>
-                </li>
-            </ul>
+            { this.renderSections() }
         </section>
 
         <section className="blurb">
@@ -47,4 +64,10 @@ export default props => (
         </section>
         <Footer />
     </section>
-)
+        );
+	}
+}
+
+const mapStateToProps = state => ({sections: state.sections});
+const mapDispatchToProps = dispatch => bindActionCreators({getSections}, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
