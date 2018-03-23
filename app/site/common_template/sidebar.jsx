@@ -13,18 +13,17 @@ class Sidebar extends Component {
 
     renderSections() {
         const { sections } = this.props.sections;
+        
         return sections.map((section) => (
-            <ul className="posts">
-                <li>
-                    <article>
-                        <header>
-                            <h3><a href={`#sections/${section.slug}`}>{`${section.title}`}</a></h3>
-                            {/* <time className="published" >October 20, 2015</time> */}
-                        </header>
-                        <a href={`#sections/${section.slug}`} className="image"><img src="./assets/images/pic10.jpg" alt={`${section.title}`} /></a>
-                    </article>
-                </li>
-            </ul>
+            <li key={`${section.id}`}>
+                <article>
+                    <header>
+                        <h3><a href={`#sections/${section.slug}`}>{`${section.title}`}</a></h3>
+                        {/* <time className="published" >October 20, 2015</time> */}
+                    </header>
+                    <a href={`#sections/${section.slug}`} className="image"><img src="./assets/images/pic10.jpg" alt={`${section.title}`} /></a>
+                </article>
+            </li>
         ));
     }
 
@@ -52,7 +51,9 @@ class Sidebar extends Component {
         
         <section className="blurb">
             <h2>Seções</h2>
+            <ul className="posts">
             { this.renderSections() }
+            </ul>
         </section>
 
         <section className="blurb">
