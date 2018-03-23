@@ -8,7 +8,7 @@ https://webpack.js.org/guides/production/
 module.exports = merge(common, {
     plugins: [
         new UglifyJSPlugin({
-            sourceMap: true
+            parallel: 4
         })
     ]
 });
