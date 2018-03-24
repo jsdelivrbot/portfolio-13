@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Messages from './../common/messages/messages';
 import { login, signup } from './../auth/authActions';
 import Text from './../dashboard/common_template/form/inputText';
 import { required } from './../dashboard/common_template/form/validators';
@@ -53,6 +54,7 @@ class Login extends Component {
                     </form>
                 </section>
                 </main>
+                <Messages />
             </div>
         )
     }

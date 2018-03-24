@@ -2,6 +2,14 @@ import { toastr } from 'react-redux-toastr';
 import axios from 'axios';
 import CONSTS from './../common/consts';
 
+const handleError = (error) => {
+    if (error.response) {
+        toastr.error('Erro', error.response.data.error);
+    } else {
+        toastr.error('Erro', error.message);
+    }
+}
+
 function submit(values, url) {
 
     return dispatch => {
@@ -10,11 +18,10 @@ function submit(values, url) {
                 dispatch([
                     { type: 'USER_FETCHED', payload: resp.data }
                 ]);
+                toastr.success('Sucesso', 'Login efetuado com sucesso!');
                 window.location.href = '#/dashboard';
             })
-            .catch(e => {
-                toastr.error('Erro', e);
-            });
+            .catch(handleError);
     }
 }
 
@@ -27,6 +34,7 @@ export function signup(values) {
 }
 
 export function logout() {
+    toastr.success('Sucesso', 'Logout efetuado com sucesso!');
     return { type: 'TOKEN_VALIDATED', payload: false };
 }
 

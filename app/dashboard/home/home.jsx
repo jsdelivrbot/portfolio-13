@@ -1,59 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import CONSTS from './../../common/consts';
+import { getProjects } from './../../site/home/homeActions';
 class Dashboard extends Component {
 
     componentWillMount() {
-
+		this.props.getProjects();
+    }
+    
+    renderProjects() {
+        const projects = this.props.home.projects;
+        return projects.map(project => (
+            <tr key={`${project.id}`}>
+                <td><h2>{`${project.order_display}`}</h2></td>
+				<td>{`${project.title}`}</td>
+                <td><h2>{`${project.category}`}</h2></td>
+                <td><img className="cover-project" src={`${CONSTS.IMAGE_PATH + project.folder_files}/thumb-${project.cover}`} alt="" /></td>
+            </tr>
+        ));
     }
 
     render() {
-        const title = 'Home Page';
         return (
             <main role="main" id="main">
                 <section>
-                    <h3>{title}</h3>
+                    <h3>Ordem de Exibição na Home</h3>
                     <div className="table-wrapper">
-                    <table>
+                    <table className="projects">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
+                                <th>Posição</th>
+                                <th>Projeto</th>
+                                <th>Categoria</th>
+                                <th>Capa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Item One</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>29.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Two</td>
-                                <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                                <td>19.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Three</td>
-                                <td> Morbi faucibus arcu accumsan lorem.</td>
-                                <td>29.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Four</td>
-                                <td>Vitae integer tempus condimentum.</td>
-                                <td>19.99</td>
-                            </tr>
-                            <tr>
-                                <td>Item Five</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>29.99</td>
-                            </tr>
+                            { this.renderProjects() }
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colSpan="2"></td>
-                                <td>100.00</td>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
                 </section>
@@ -62,4 +48,9 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+
+const mapStateToProps = state => ({home: state.home});
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getProjects
+}, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
